@@ -1,3 +1,4 @@
+# Description: Clase Producto que representa un producto en el inventario.
 import datetime
 from informe import Informe
 class Producto:
@@ -9,6 +10,7 @@ class Producto:
         self._stock = 0
         self._registros = []
 
+    # Propiedades de solo lectura para los atributos del producto. 
     @property
     def codigo(self):
         return self._codigo
@@ -29,6 +31,7 @@ class Producto:
     def stock(self):
         return self._stock
 
+    # Método para registrar la entrada de un producto al inventario. Incluye validaciones para verificar si el producto ya existe.
     def entrada(self, cantidad):
         if cantidad < 0:
             raise ValueError("La cantidad no puede ser negativa.")
@@ -36,6 +39,7 @@ class Producto:
         fecha = datetime.datetime.now()
         self._registros.append((fecha, cantidad, "Entrada"))
 
+    # Método para registrar la salida de un producto del inventario.incluye validaciones para verificar si el producto existe y si hay suficiente stock disponible.
     def salida(self, cantidad):
         if cantidad < 0:
             raise ValueError("La cantidad no puede ser negativa.")
@@ -46,6 +50,7 @@ class Producto:
         else:
             raise ValueError("No hay suficiente stock disponible.")
 
+    # Método para obtener el inventario del producto.
     def obtener_inventario(self):
         return {
             "codigo": self._codigo,
@@ -54,7 +59,8 @@ class Producto:
             "precio": self._precio,
             "stock": self._stock
         }
-
+    
+    # Método para obtener los registros de entradas y salidas del producto.
     def obtener_registros(self):
         return self._registros
     
