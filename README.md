@@ -41,7 +41,7 @@ classDiagram
     InventarioGUI --> Producto 
 ```
 
-La solución se diseñó con una estructura modular para separar la lógica de negocio de la interfaz de usuario, facilitando la escalabilidad y el mantenimiento del sistema.
+La solución se diseñó con una estructura modular para separar el manejo de inventarios,  de la interfaz de usuario, facilitando la escalabilidad y el mantenimiento del sistema.
 
 Basado en 4 aspectos
 
@@ -58,7 +58,7 @@ Estructura Modular de la aplicacion
 Para abordar el problema de manera efectiva, se desarrollaron varios módulos, cada uno con responsabilidades específicas:
 
 1. Módulo Producto
-Funcionalidad: Este módulo es el núcleo de la lógica relacionada con los productos. Cada instancia de la clase Producto representa un producto en el inventario.
+Funcionalidad: Este módulo es el responsable de la lógica relacionada con los productos. Cada instancia de la clase Producto representa un producto en el inventario.
 Componentes Principales:
 Atributos Privados:
 _codigo: Código único del producto.
