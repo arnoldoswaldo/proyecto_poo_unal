@@ -131,6 +131,7 @@ Para distribuciones basadas en OpenSuse:
 ```
 ---------------------------
 Referencias
+
 https://github.com/fegonzalez7/poo_unal_clase1 (contenido de los repositorios publicados)
 
 https://www.freecodecamp.org/espanol/news/python-decorador-property/#:~:text=El%20decorador%20%40property%20es%20un,usar%20propiedades%20en%20una%20clase.
