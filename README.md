@@ -40,6 +40,7 @@ classDiagram
     Informe o-- Producto 
     InventarioGUI --> Producto 
 ```
+
 La solución se diseñó con una estructura modular para separar la lógica de negocio de la interfaz de usuario, facilitando la escalabilidad y el mantenimiento del sistema.
 
 Basado en 4 aspectos
@@ -114,7 +115,7 @@ Informe toma todos los productos manejados por la interfaz gráfica y genera un 
 
 -----------------------------------
 La aplicacion es funcional para windows ya que las versiones de python cuentan con la biblioteca tkinter instalada por defecto para usarse en linux  basta con seguir las siguientes instrucciones  en la terminal 
-'''
+```
 Para distribuciones basadas en Debian (Ubuntu, LinuxMint, etc):
 sudo apt install python3-tk
 
@@ -123,7 +124,7 @@ sudo dnf install python3-tkinter
 
 Para distribuciones basadas en OpenSuse:
 sudo zypper in python3-tk
-'''
+```
 ---------------------------
 bibliografia 
 https://medium.com/@solidlucho/tkinter-crea-interfaces-gr%C3%A1ficas-en-python-de-forma-sencilla-50d131f84883
