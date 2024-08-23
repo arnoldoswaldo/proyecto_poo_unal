@@ -114,21 +114,30 @@ Producto es la clase donde se maneja la lógica relacionada con cada artículo d
 Informe toma todos los productos manejados por la interfaz gráfica y genera un informe detallado en un archivo de texto, lo que facilita la revisión de las operaciones realizadas.
 
 -----------------------------------
-La aplicacion es funcional para windows ya que las versiones de python cuentan con la biblioteca tkinter instalada por defecto para usarse en linux  basta con seguir las siguientes instrucciones  en la terminal 
+La aplicacion es funcional para windows ya que las versiones de python cuentan con la biblioteca tkinter instalada por defecto, para usarse en linux dependiendo de la distribucion y la version de python, si no cuenta con la bibilioteca tkinter   basta con seguir las siguientes instrucciones  en la terminal para poder instarlo  
 ```
+Para validar si se cuenta con tkinter instalado
+    python3 --version
+    python3 -m tkinter
+
 Para distribuciones basadas en Debian (Ubuntu, LinuxMint, etc):
-sudo apt install python3-tk
+    sudo apt install python3-tk
 
 Para distribuciones basadas en RHEL (Fedora, CentOS, etc)
-sudo dnf install python3-tkinter
+    sudo dnf install python3-tkinter
 
 Para distribuciones basadas en OpenSuse:
-sudo zypper in python3-tk
+    sudo zypper in python3-tk
 ```
 ---------------------------
-bibliografia 
+Referencias
+https://github.com/fegonzalez7/poo_unal_clase1 (contenido de los repositorios publicados)
+https://www.freecodecamp.org/espanol/news/python-decorador-property/#:~:text=El%20decorador%20%40property%20es%20un,usar%20propiedades%20en%20una%20clase.
 https://medium.com/@solidlucho/tkinter-crea-interfaces-gr%C3%A1ficas-en-python-de-forma-sencilla-50d131f84883
+https://www.youtube.com/watch?v=MpkTYMzhV0A
 https://docs.hektorprofe.net/python/interfaces-graficas-con-tkinter/widget-button-boton/
 https://es.stackoverflow.com/questions/312284/c%C3%B3mo-instalo-tkinter-en-python-3
 https://www.youtube.com/watch?v=8L5JFlxTcWg
 https://www.youtube.com/watch?v=AGw1A4L3Bhs
+https://www.youtube.com/watch?v=LfSGeCt50Z0
+https://noviello.it/es/como-instalar-python-tkinter-en-linux/
