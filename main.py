@@ -9,15 +9,16 @@ class InventarioGUI:
     def __init__(self, root):
         self.root = root
         self.root.title("Sistema de Inventario")
-        
+                
         # Lista de productos
         self.productos = []
 
         # Interfaz para registrar producto
         self.frame_registro = tk.Frame(root)
         self.frame_registro.pack(pady=10)
+        
 
-        # Etiquetas y campos de entrada
+        # Etiquetas y campos de entrada para el registro de productos
         tk.Label(self.frame_registro, text="Código:").grid(row=0, column=0)
         tk.Label(self.frame_registro, text="Nombre:").grid(row=1, column=0)
         tk.Label(self.frame_registro, text="Descripción:").grid(row=2, column=0)
@@ -47,7 +48,9 @@ class InventarioGUI:
 
         tk.Button(self.frame_informes, text="Ver Inventario", command=self.ver_inventario).pack(side="left", padx=10)
         tk.Button(self.frame_informes, text="Generar Informe Consolidado", command=self.generar_informe_consolidado).pack(side="left", padx=10)
-    
+
+      
+        
     # Método para buscar un producto por su código. 
     def buscar_producto(self, codigo):
         for producto in self.productos:
@@ -70,6 +73,13 @@ class InventarioGUI:
 
         producto.entrada(cantidad)
         messagebox.showinfo("Registro de Entrada", "¡Entrada registrada exitosamente!")
+
+          #  limpiar campos de entrada después de registrar entrada o salida
+        self.codigo_entry.delete(0, tk.END)
+        self.nombre_entry.delete(0, tk.END)
+        self.descripcion_entry.delete(0, tk.END)
+        self.precio_entry.delete(0, tk.END)
+        self.cantidad_entry.delete(0, tk.END)
     
     # Método para registrar la salida de un producto del inventario. incluye validaciones para verificar si el producto existe y si hay suficiente stock disponible.
     def registrar_salida(self):
@@ -85,6 +95,14 @@ class InventarioGUI:
                 messagebox.showerror("Error", str(e))
         else:
             messagebox.showerror("Error", "Producto no encontrado.")
+
+          #  limpiar campos de entrada después de registrar entrada o salida
+        self.codigo_entry.delete(0, tk.END)
+        self.nombre_entry.delete(0, tk.END)
+        self.descripcion_entry.delete(0, tk.END)
+        self.precio_entry.delete(0, tk.END)
+        self.cantidad_entry.delete(0, tk.END)
+        
     # Método para ver el inventario de productos. muestra una ventana emergente con la información de los productos en el inventario.
     def ver_inventario(self):
         inventario_text = ""

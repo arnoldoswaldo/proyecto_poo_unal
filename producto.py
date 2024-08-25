@@ -10,7 +10,7 @@ class Producto:
         self._stock = 0
         self._registros = []
 
-    # Propiedades de solo lectura para los atributos del producto. 
+    # Propiedades de solo lectura para los atributos del producto.
     @property
     def codigo(self):
         return self._codigo
