@@ -6,7 +6,7 @@ DIAGRAMA DE CLASES
 ***
 ```mermaid
 Diagrama de clases
-      class DBManager {  
+  class DBManager {  
             +db_name: str  
             +conexion: Connection  
             +cursor: Cursor  
@@ -17,14 +17,14 @@ Diagrama de clases
             +obtener_movimientos(codigo): list  
           }  
           
-          class InventarioLogic {  
+class InventarioLogic {  
             +db_manager: DBManager  
             +registrar_ingreso(codigo, cantidad): str  
             +registrar_salida(codigo, cantidad): str  
             +generar_informe(codigo): str  
           }  
           
-          class Producto {  
+ class Producto {  
             +_codigo: str  
             +_nombre: str  
             +_descripcion: str  
@@ -37,22 +37,22 @@ Diagrama de clases
             +obtener_registros(): list  
           }  
       
-          class InventarioGUI {  
+class InventarioGUI {  
             +root: Tk  
             +logic: InventarioLogic  
             +create_widgets(): void  
           }  
           
-          class InterfazInventario {  
+class InterfazInventario {  
             +root: Tk  
             +gui: InventarioGUI  
             +__init__(root): void  
           }  
       
-          InventarioLogic --> DBManager : uses  
-          InventarioGUI --> InventarioLogic : uses  
-          InventarioLogic --> Producto : manages  
-          InventarioGUI --> InterfazInventario : uses
+InventarioLogic --> DBManager : uses  
+InventarioGUI --> InventarioLogic : uses  
+InventarioLogic --> Producto : manages  
+InventarioGUI --> InterfazInventario : uses
 ```
 
 La solución se diseñó con una estructura modular para separar el manejo de inventarios,  de la interfaz de usuario, facilitando la escalabilidad y el mantenimiento del sistema.
