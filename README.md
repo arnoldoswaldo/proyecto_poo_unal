@@ -1,7 +1,7 @@
 # proyecto_poo_unal
 Proyecto poo, Entre las opciones planteadas se opto por el desarrollo de una aplicación que emule un sistema de gestión de inventario para una bodega utilizando Python, tomando tambien el plateamiento de que la aplicacion tenga una interfaz grafica GUI,  y el manejo de inventario mediante una base de datos , como primer medida pasamos a desarrollar nuestro diagrama de clases. 
 
-DIAGRAMA DE CLASES
+# DIAGRAMA DE CLASES
 
 ***
 ```mermaid
@@ -64,15 +64,15 @@ classDiagram
 ```
 
 -----------------------------------------------------------------------------
-#Integración Modular de los Componentes
+# Integración Modular de los Componentes
 
 El diseño modular de la aplicación se ha estructurado cuidadosamente para garantizar una separación clara de responsabilidades entre los diferentes módulos. A continuación se explica cómo cada componente contribuye al funcionamiento del sistema y cómo interactúan entre sí.
 
-#Principal (main.py)
+# Principal (main.py)
 
 Este módulo es el punto de entrada de la aplicación. Su principal tarea es inicializar la ventana raíz de Tkinter y crear una instancia de la clase InterfazInventario. Esto establece la interfaz gráfica y proporciona el enlace entre el usuario y la lógica del inventario, asegurando que la aplicación esté lista para manejar las interacciones del usuario.
 
-#InterfazInventario (interfazinventario.py)
+# InterfazInventario (interfazinventario.py)
 
 InterfazInventario es el núcleo de la interfaz gráfica de la aplicación, gestionando todas las interacciones del usuario con el sistema. Proporciona los métodos para crear elementos de la interfaz (como formularios, botones y cuadros de texto) y maneja las acciones del usuario, como agregar, modificar o eliminar productos.
 
@@ -82,7 +82,7 @@ BaseDatos: para gestionar la persistencia de datos en la base de datos.
 Inventario: para manejar la colección de productos en memoria y sus operaciones, como actualizar el stock o generar informes.
 Gracias a esta integración, InterfazInventario coordina de manera efectiva las acciones del usuario, la manipulación de datos y la actualización de la interfaz gráfica.
 
-#BaseDatos (bdd.py)
+# BaseDatos (bdd.py)
 
 BaseDatos es responsable de gestionar todas las operaciones de persistencia a través de SQLite. Proporciona métodos para crear tablas, y realizar operaciones CRUD (crear, leer, actualizar y eliminar) sobre los productos.
 
@@ -92,19 +92,19 @@ Persistir datos de productos cuando se añaden, modifican o eliminan.
 Recuperar información actualizada sobre los productos para su visualización y gestión en la interfaz.
 Al encapsular todas las operaciones de base de datos, se asegura que los datos del inventario sean consistentes y se almacenen correctamente.
 
-#Inventario (inventario.py)
+# Inventario (inventario.py)
 
 Este módulo se encarga de la gestión de la colección de productos en memoria. La clase Inventario proporciona métodos para agregar, modificar, actualizar stock y eliminar productos de la colección. También incluye un método para generar informes de inventario, lo que permite revisar el estado actual de los productos y sus movimientos.
 
 Inventario se utiliza para mantener una representación actualizada y en tiempo real del inventario, lo que permite a la aplicación funcionar incluso si hay problemas temporales con la base de datos.
 
-#Producto (producto.py)
+# Producto (producto.py)
 
 La clase Producto define la estructura de los productos individuales en el inventario. Utiliza decoradores de propiedades para garantizar un acceso controlado y seguro a los atributos de cada producto, como el código, nombre, descripción, precio, y stock.
 
 Tanto Inventario como BaseDatos trabajan con instancias de la clase Producto, lo que asegura una representación consistente de los productos en todos los módulos de la aplicación. Producto también incluye métodos para proporcionar información detallada de cada artículo, facilitando la interacción y administración de productos a nivel de inventario y base de datos.
 
-#Integración de Módulos
+# Integración de Módulos
 
 Principal (main.py): Inicializa la interfaz gráfica creando una instancia de InterfazInventario, lo que da inicio al ciclo de vida de la aplicación.
 InterfazInventario (interfazinventario.py): Es el punto central de integración. Este módulo conecta la lógica de la interfaz de usuario con las operaciones de base de datos (a través de BaseDatos) y la gestión del inventario en memoria (a través de Inventario).
@@ -146,7 +146,7 @@ Para distribuciones basadas en OpenSuse:
     sudo zypper in python3-tk
 ```
 ---------------------------
-Referencias
+# Referencias
 
 https://github.com/fegonzalez7/poo_unal_clase1 (contenido de los repositorios publicados)
 
