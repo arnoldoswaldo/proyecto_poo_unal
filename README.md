@@ -5,40 +5,54 @@ DIAGRAMA DE CLASES
 
 ***
 ```mermaid
-classDiagram
-    class Producto {
-        - _codigo : str
-        - _nombre : str
-        - _descripcion : str
-        - _precio : float
-        - _stock : int
-        - _registros : list
-        + codigo : str
-        + nombre : str
-        + descripcion : str
-        + precio : float
-        + stock : int
-        + entrada(cantidad: int)
-        + salida(cantidad: int)
-        + obtener_inventario() dict
-        + obtener_registros() list
-    }
+Diagrama de clases
+class DBManager {  
+      +db_name: str  
+      +conexion: Connection  
+      +cursor: Cursor  
+      +crear_tablas(): void  
+      +insertar_producto(codigo, nombre, descripcion, precio, stock, descripcion_adicional): void  
+      +obtener_producto(codigo): Producto  
+      +registrar_salida(codigo, cantidad): void  
+      +obtener_movimientos(codigo): list  
+    }  
+    
+    class InventarioLogic {  
+      +db_manager: DBManager  
+      +registrar_ingreso(codigo, cantidad): str  
+      +registrar_salida(codigo, cantidad): str  
+      +generar_informe(codigo): str  
+    }  
+    
+    class Producto {  
+      +_codigo: str  
+      +_nombre: str  
+      +_descripcion: str  
+      +_precio: float  
+      +_stock: int  
+      +_registros: list  
+      +entrada(cantidad): void  
+      +salida(cantidad): void  
+      +obtener_inventario(): dict  
+      +obtener_registros(): list  
+    }  
 
-    class Informe {
-        - productos : list~Producto~
-        + generar_informe()
-    }
+    class InventarioGUI {  
+      +root: Tk  
+      +logic: InventarioLogic  
+      +create_widgets(): void  
+    }  
+    
+    class InterfazInventario {  
+      +root: Tk  
+      +gui: InventarioGUI  
+      +__init__(root): void  
+    }  
 
-    class InventarioGUI {
-        - productos : list~Producto~
-        + registrar_entrada()
-        + registrar_salida()
-        + ver_inventario()
-        + generar_informe_consolidado()
-    }
-
-    Informe o-- Producto 
-    InventarioGUI --> Producto 
+    InventarioLogic --> DBManager : uses  
+    InventarioGUI --> InventarioLogic : uses  
+    InventarioLogic --> Producto : manages  
+    InventarioGUI --> InterfazInventario : uses
 ```
 
 La solución se diseñó con una estructura modular para separar el manejo de inventarios,  de la interfaz de usuario, facilitando la escalabilidad y el mantenimiento del sistema.
