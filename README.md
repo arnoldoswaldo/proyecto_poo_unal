@@ -6,53 +6,53 @@ DIAGRAMA DE CLASES
 ***
 ```mermaid
 Diagrama de clases
-class DBManager {  
-      +db_name: str  
-      +conexion: Connection  
-      +cursor: Cursor  
-      +crear_tablas(): void  
-      +insertar_producto(codigo, nombre, descripcion, precio, stock, descripcion_adicional): void  
-      +obtener_producto(codigo): Producto  
-      +registrar_salida(codigo, cantidad): void  
-      +obtener_movimientos(codigo): list  
-    }  
-    
-    class InventarioLogic {  
-      +db_manager: DBManager  
-      +registrar_ingreso(codigo, cantidad): str  
-      +registrar_salida(codigo, cantidad): str  
-      +generar_informe(codigo): str  
-    }  
-    
-    class Producto {  
-      +_codigo: str  
-      +_nombre: str  
-      +_descripcion: str  
-      +_precio: float  
-      +_stock: int  
-      +_registros: list  
-      +entrada(cantidad): void  
-      +salida(cantidad): void  
-      +obtener_inventario(): dict  
-      +obtener_registros(): list  
-    }  
-
-    class InventarioGUI {  
-      +root: Tk  
-      +logic: InventarioLogic  
-      +create_widgets(): void  
-    }  
-    
-    class InterfazInventario {  
-      +root: Tk  
-      +gui: InventarioGUI  
-      +__init__(root): void  
-    }  
-
-    InventarioLogic --> DBManager : uses  
-    InventarioGUI --> InventarioLogic : uses  
-    InventarioLogic --> Producto : manages  
-    InventarioGUI --> InterfazInventario : uses
+      class DBManager {  
+            +db_name: str  
+            +conexion: Connection  
+            +cursor: Cursor  
+            +crear_tablas(): void  
+            +insertar_producto(codigo, nombre, descripcion, precio, stock, descripcion_adicional): void  
+            +obtener_producto(codigo): Producto  
+            +registrar_salida(codigo, cantidad): void  
+            +obtener_movimientos(codigo): list  
+          }  
+          
+          class InventarioLogic {  
+            +db_manager: DBManager  
+            +registrar_ingreso(codigo, cantidad): str  
+            +registrar_salida(codigo, cantidad): str  
+            +generar_informe(codigo): str  
+          }  
+          
+          class Producto {  
+            +_codigo: str  
+            +_nombre: str  
+            +_descripcion: str  
+            +_precio: float  
+            +_stock: int  
+            +_registros: list  
+            +entrada(cantidad): void  
+            +salida(cantidad): void  
+            +obtener_inventario(): dict  
+            +obtener_registros(): list  
+          }  
+      
+          class InventarioGUI {  
+            +root: Tk  
+            +logic: InventarioLogic  
+            +create_widgets(): void  
+          }  
+          
+          class InterfazInventario {  
+            +root: Tk  
+            +gui: InventarioGUI  
+            +__init__(root): void  
+          }  
+      
+          InventarioLogic --> DBManager : uses  
+          InventarioGUI --> InventarioLogic : uses  
+          InventarioLogic --> Producto : manages  
+          InventarioGUI --> InterfazInventario : uses
 ```
 
 La solución se diseñó con una estructura modular para separar el manejo de inventarios,  de la interfaz de usuario, facilitando la escalabilidad y el mantenimiento del sistema.
