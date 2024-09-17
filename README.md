@@ -88,13 +88,13 @@ BaseDatos es responsable de gestionar todas las operaciones de persistencia a tr
 
 Este módulo es utilizado por InterfazInventario para:
 
-Persistir datos de productos cuando se añaden, modifican o eliminan.
+Garantizar la persistencia para los datos de productos cuando se añaden, modifican o eliminan.
 Recuperar información actualizada sobre los productos para su visualización y gestión en la interfaz.
 Al encapsular todas las operaciones de base de datos, se asegura que los datos del inventario sean consistentes y se almacenen correctamente.
 
 # Inventario (inventario.py)
 
-Este módulo se encarga de la gestión de la colección de productos en memoria. La clase Inventario proporciona métodos para agregar, modificar, actualizar stock y eliminar productos de la colección. También incluye un método para generar informes de inventario, lo que permite revisar el estado actual de los productos y sus movimientos.
+Este módulo se encarga de la gestión de la colección de productos en memoria. La clase Inventario proporciona métodos para agregar, modificar, actualizar stock y eliminar productos. También incluye un método para generar informes de inventario, lo que permite revisar el estado actual de los productos y sus movimientos.
 
 Inventario se utiliza para mantener una representación actualizada y en tiempo real del inventario, lo que permite a la aplicación funcionar incluso si hay problemas temporales con la base de datos.
 
@@ -106,10 +106,10 @@ Tanto Inventario como BaseDatos trabajan con instancias de la clase Producto, lo
 
 # Integración de Módulos
 
-Principal (main.py): Inicializa la interfaz gráfica creando una instancia de InterfazInventario, lo que da inicio al ciclo de vida de la aplicación.
+Principal (main.py): Inicializa la interfaz gráfica creando una instancia de InterfazInventario, lo que da inicio al ciclo de la aplicación.
 InterfazInventario (interfazinventario.py): Es el punto central de integración. Este módulo conecta la lógica de la interfaz de usuario con las operaciones de base de datos (a través de BaseDatos) y la gestión del inventario en memoria (a través de Inventario).
 BaseDatos (bdd.py): Se encarga de la persistencia de datos, almacenando y recuperando información sobre los productos desde la base de datos.
-Inventario (inventario.py): Mantiene la colección de productos en memoria, gestionando el estado actual del inventario.
+Inventario (inventario.py): Mantiene la informacion de productos en memoria, gestionando el estado actual del inventario.
 Producto (producto.py): Representa individualmente cada producto, y sus instancias son utilizadas por InterfazInventario, BaseDatos e Inventario para asegurar la consistencia de los datos.
 
 
